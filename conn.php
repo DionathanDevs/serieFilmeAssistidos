@@ -5,7 +5,7 @@ function conn(){
     $server = 'localhost';
     $user = 'root';
     $password = '';
-    $bank = '';
+    $bank = 'systemWatch';
 
     $conn = mysqli_connect($server,$user,$password,$bank);
 

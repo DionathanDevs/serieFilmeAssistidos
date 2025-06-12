@@ -27,7 +27,7 @@ function registerIsEmpty(){
 // verificando se as senhas informadas são iguais
 
 function verifyPassword(){
-    if($_POST['password'] === $_POST['repeatpassword']){
+    if($_POST['password'] !== $_POST['repeatpassword']){
         return true;
     }else{
         return false;
@@ -44,8 +44,8 @@ function verifyExceptions(){
 
 //verificando se existe ms enviado na url para tratamento de erros, se nao, encerre aqui.
 
-if(!empty($_GET['ms'])){
-    exit;
+if(!isset($_GET['ms'])){
+    return;
 }
 
 //enviado via url para tratamento de erros
