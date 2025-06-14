@@ -24,6 +24,14 @@ function registerIsEmpty(){
 
 }
 
+function watchesIsEmpty(){
+    if(!empty($_POST['title']) || !empty($_POST['rating']) || !empty($_POST['genero']) || !empty($_POST['titleType'])){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 // verificando se as senhas informadas são iguais
 
 function verifyPassword(){
