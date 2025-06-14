@@ -33,6 +33,7 @@
                     <input type="password" id="repeatpassword" name="repeatpassword" class="form-control" required>
                 </div>
                 <button type="submit" class="btn">Cadastrar</button>
+                <a href="loginweb.php">Ja possui login?</a>
             </form>
         </div>
     </div>
