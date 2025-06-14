@@ -62,10 +62,10 @@ if(!mysqli_stmt_bind_param($stmt, "sss", $user, $password, $email)){
 // se retornar true segue o código normalmemente, se retornar false, é porque o sql na hora de ser executado deu algum erro.
 
 if(!mysqli_stmt_execute($stmt)){
-    header('location:cadastro.php?ms=4');
+    header('location:cadastro.php?ms=5');
     exit;
 }
 
-header('location:login.php?ms=5'); // se tudo der certo, chegará aqui e vai ser exibida uma msg de cadastro realizado.
+header('location:login.php?ms=6'); // se tudo der certo, chegará aqui e vai ser exibida uma msg de cadastro realizado.
 
 ?>

@@ -5,12 +5,12 @@ require_once 'functions.php';
 //verifacando o envio do formulario com functions
 
 if(notForm()){
-    header('location:index.php?ms1');
+    header('location:index.php?ms=0');
     exit;
 }
 
 if(watchesIsEmpty()){
-    header('location:index.php?ms8');
+    header('location:index.php?ms=8');
     exit;
 }
 //chamando o arquivo de conexao
@@ -22,7 +22,7 @@ $id = $_SESSION['id'];
 $title = $_POST['title'];
 $genero = $_POST['genero'];
 $description = $_POST['description'] ?? '';
-$rating = $_POST['rating'];
+$rating = (int) $_POST['rating'];
 $tittleType = $_POST['tittleType'];
 
 
@@ -36,18 +36,19 @@ $stmt = mysqli_prepare($conn, $sql);
 
 
 if(!$stmt){
-    header('location:index.php?ms=5');
+    header('location:index.php?ms=2');
     exit;
 }
 
 if(!mysqli_stmt_bind_param($stmt, "sssisi", $title, $genero, $description, $rating, $tittleType, $id)){
-    header('location:index.php?ms=5');
+    header('location:index.php?ms=3');
     exit;
 }
 
 if(!mysqli_stmt_execute($stmt)){
-    header('location:index?ms=5');
+    header('location:index.php?ms=6');
     exit;
 }       
 
+header('location:index.php');
 ?>
