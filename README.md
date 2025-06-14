@@ -1,52 +1,24 @@
-Sistema de Filmes/Séries Assistidos (PHP + MySQL)
-📋 Descrição do Projeto
-Sistema completo para registro de filmes e séries assistidos desenvolvido com:
+# 🎬 Sistema de Filmes/Séries Assistidos (PHP + MySQL)
 
-PHP puro (sem frameworks)
+## 📋 Descrição
+Sistema completo para registro de filmes e séries assistidos, com:
+- Autenticação de usuários
+- CRUD de títulos
+- Validações server-side
 
-MySQL (via XAMPP)
+## 🚀 Instalação
+1. **Requisitos**:
+   - XAMPP ([download](https://www.apachefriends.org))
+   - PHP 8+
+   - MySQL/MariaDB
 
-HTML/CSS básico
+2. **Configuração**:
+   ```bash
+   # Extraia na pasta htdocs
+   C:\xampp\htdocs\sistema-filmes\
+Banco de Dados (execute no phpMyAdmin):
 
-🛠 Tecnologias Utilizadas
-Front-end: HTML5, CSS3
-
-Back-end: PHP 8+
-
-Banco de dados: MySQL (via XAMPP)
-
-Servidor: Apache (XAMPP)
-
-📂 Estrutura de Arquivos
-text
-/
-├── /database/
-│   └── tbwatches.sql       # Script SQL do banco
-├── conn.php                # Conexão com MySQL
-├── functions.php           # Funções auxiliares
-├── verify.php              # Controle de sessão
-├── cadastro.php            # Página de cadastro
-├── cadastroback.php        # Processa cadastro
-├── login.php               # Processa login
-├── loginweb.php            # Página de login
-├── index.php               # Página principal
-├── deletar_assistido.php   # Remove registros
-├── logout.php              # Encerra sessão
-└── style.css               # Estilos CSS
-🚀 Instalação Passo a Passo
-1. Configurar XAMPP
-Instale o XAMPP (https://www.apachefriends.org)
-
-Inicie os módulos Apache e MySQL
-
-2. Criar o Banco de Dados
-Acesse phpMyAdmin (http://localhost/phpmyadmin)
-
-Crie um banco chamado systemwatch
-
-Importe o arquivo tbwatches.sql:
-
-sql
+``sql``
 CREATE TABLE `tbwatches` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(70) NOT NULL,
@@ -57,16 +29,30 @@ CREATE TABLE `tbwatches` (
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-3. Configurar Conexão
+📂 Estrutura de Arquivos
+``text``
+sistema-filmes/
+├── conn.php                 # Conexão MySQL
+├── functions.php            # Funções compartilhadas
+├── verify.php               # Controle de sessão
+├── cadastro.php             # View de cadastro
+├── cadastroback.php         # Controller de cadastro
+├── login.php                # Autenticação
+├── loginweb.php             # Página de login
+├── index.php                # Dashboard principal
+├── deletar_assistido.php    # Exclusão de registros
+├── logout.php               # Encerrar sessão
+└── style.css                # Estilos CSS
+⚙️ Configuração
 Edite conn.php com seus dados:
 
-php
+``php``
 <?php
 function conn() {
     $server = 'localhost';
-    $user = 'root';          // Usuário padrão XAMPP
-    $password = '';          // Senha padrão XAMPP (vazia)
-    $bank = 'systemwatch';   // Nome do banco
+    $user = 'root';
+    $password = '';
+    $bank = 'systemwatch';
     
     $conn = mysqli_connect($server, $user, $password, $bank);
     
@@ -77,7 +63,18 @@ function conn() {
     return $conn;
 }
 ?>
-4. Testar o Sistema
-Coloque os arquivos na pasta htdocs do XAMPP
+🔒 Códigos de Erro
+Código	Mensagem
+0	Requisição inválida
+1	Senhas não coincidem
+4	Campos obrigatórios
+6	Sucesso na operação
+7	Credenciais inválidas
+💡 Como Usar
+Acesse:
 
-Acesse: http://localhost/seu_projeto/loginweb.php
+``text``
+http://localhost/sistema-filmes/loginweb.php
+Cadastre-se e faça login
+
+Adicione filmes/séries no dashboard
