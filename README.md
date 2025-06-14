@@ -26,6 +26,10 @@ Sistema completo para registro de filmes e séries assistidos, com:
    **Banco de Dados**:
    Execute o script SQL abaixo no phpMyAdmin ou importe o arquivo `.sql` exportado do repositório no seu phpMyAdmin:
 
+   Se for importado, utilizar Usuario 'dio', e senha '123'.
+
+   Se não for importado, realizar o script abaixo:
+
    ```sql
    CREATE TABLE `tbwatches` (
      `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,7 +41,7 @@ Sistema completo para registro de filmes e séries assistidos, com:
      `id_user` int(11) NOT NULL,
      PRIMARY KEY (`id`)
    );
-3. **Ajuste o arquivo conn.php para os seus dados**:
+4. **Ajuste o arquivo conn.php para os seus dados**:
 ```bash 
 <?php
 function conn() {
